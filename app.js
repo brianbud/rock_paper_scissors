@@ -15,15 +15,17 @@ else {
 
 
 
-const playerSelection = "scissors";
+
+const playerSelection = prompt("Please enter your choice").toLowerCase();
+
 const computerSelection = computerPlay;
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection === "Rock" && computerSelection === "scissors") {
+    if (playerSelection === "rock" && computerSelection === "scissors") {
         return ("You used Rock , you win");
     }
 
-    if (playerSelection === "Paper" && computerSelection === "rock") {
+    if (playerSelection === "paper" && computerSelection === "rock") {
         return ("You used paper and computer used rock, you win!")
     }
 
