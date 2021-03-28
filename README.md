@@ -1,1 +1,4 @@
-This is the first JavaScript project from The Odin Project
+This is the first JavaScript project for The Odin Project
+
+for now, game only runs in console. 
+
