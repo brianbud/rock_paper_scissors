@@ -13,11 +13,13 @@ what i learnt:
 
 -how to create an else if function.
 
-- how to usee && and || in functions
+-how to usee && and || in functions
 
 -that i can add funtions inside functions
 
 -more familiar testing in the console
+
+-more familiar with using the terminal to push in github
 
 
 

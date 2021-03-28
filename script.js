@@ -26,16 +26,16 @@ function playRound(playerSelection, computerSelection) {
         (playerSelection === "scissors" && computerSelection === "paper")) {
 
         playerPoint = 1
-        console.log("computer chose " + computerSelection + " YOU WIN")
+        console.log("You chose " + playerSelection + "." + "Computer chose " + computerSelection + ". YOU WIN")
     }
 
     else if ((playerSelection === "rock" && computerSelection === "paper") || r
         (playerSelection === "paper" && computerSelection === "scissors") ||
         (playerSelection === "scissors" && computerSelection === "rock")) {
-        console.log("computer chose " + computerSelection + " You lose");
+        console.log("You chose " + playerSelection + ". Computer chose " + computerSelection + " You lose");
 
     } else if (playerSelection == computerSelection) {
-        console.log("computer chose " + computerSelection + " It's a tie")
+        console.log("You chose " + playerSelection + ". Computer chose " + computerSelection + ". It's a tie")
 
     } else {
         console.log("Invalid Entry, try again")
@@ -58,7 +58,7 @@ function game(roundsTotal = 5) {
 
         let computerSelection = computerPlay()
         if (playerSelection == computerSelection) {
-            console.log("its a tie you both chose the same")
+            console.log("its a tie you both chose the " + playerSelection)
             continue
         }
 
