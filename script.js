@@ -1,36 +1,87 @@
 
+//game logic
 function computerPlay() {
-    const playNumber = Math.floor(Math.random() * 3);
 
-    switch (playNumber) {
-        case 0: return "rock";
-        case 1: return "paper";
-        case 2: return "scissors";
+    let randomNum = Math.floor(Math.random() * 3);
+
+    if (randomNum === 0) {
+        return "rock";
+    }
+    else if (randomNum === 1) {
+
+        return "paper";
+    }
+
+    else {
+        return "scissors";
     }
 }
+
 
 function playRound(playerSelection, computerSelection) {
-    const r = "rock";
-    const p = "paper";
-    const s = "scissors";
+    let playerPoint = 0
 
-    const winMessage = "You win";
-    const loseMessage = "You lose";
-    const tieMessage = "It's a tie";
+    if ((playerSelection === "rock" && computerSelection === "scissors") ||
+        (playerSelection === "paper" && computerSelection === "rock") ||
+        (playerSelection === "scissors" && computerSelection === "paper")) {
 
-    if (playerSelection === computerSelection) {
-        return (tieMessage);
-    } else if ((playerSelection === r && computerSelection === s) ||
-        (playerSelection === p && computerSelection === r) || (playerSelection === s && computerSelection === p)) {
-        return (winMessage);
+        playerPoint = 1
+        console.log("computer chose " + computerSelection + " YOU WIN")
+    }
+
+    else if ((playerSelection === "rock" && computerSelection === "paper") || r
+        (playerSelection === "paper" && computerSelection === "scissors") ||
+        (playerSelection === "scissors" && computerSelection === "rock")) {
+        console.log("computer chose " + computerSelection + " You lose");
+
+    } else if (playerSelection == computerSelection) {
+        console.log("computer chose " + computerSelection + " It's a tie")
+
     } else {
-        return (loseMessage);
+        console.log("Invalid Entry, try again")
+    }
+
+    return playerPoint
+}
+
+
+function game(roundsTotal = 5) {
+    let roundsPlayed = 0
+    let playerScore = 0
+
+    while (roundsPlayed < roundsTotal) {
+        let playerSelection = prompt("enter your choice").toLowerCase();
+
+        if ((playerSelection != "rock") &&
+            (playerSelection != "paper") &&
+            (playerSelection != "scissors")) { continue }
+
+        let computerSelection = computerPlay()
+        if (playerSelection == computerSelection) {
+            console.log("its a tie you both chose the same")
+            continue
+        }
+
+        playerScore += playRound(playerSelection, computerSelection)
+        roundsPlayed++
+
+    }
+
+    if (playerScore > (roundsPlayed / 2)) {
+        console.log(" you won " + playerScore + " out of " + roundsPlayed + "rounds. You WIN!")
+    }
+
+    else if (playerScore == (roundsPlayed / 2)) {
+        console.log(" you won " + playerScore + " out of " + roundsPlayed + "rounds. TIED!")
+    }
+    else {
+        console.log('You won ' + playerScore + ' out of ' + roundsPlayed + ' rounds. You lost!')
     }
 }
 
-const playerSelection = "paper";
-const computerSelection = computerPlay();
+// to run the game
+
+game();
 
 
-console.log("Computer used " + computerPlay());
-console.log(playRound(playerSelection, computerSelection));
+
